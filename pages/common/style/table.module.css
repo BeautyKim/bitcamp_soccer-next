@@ -1,9 +1,9 @@
 .table {
   border-collapse: separate; 
-  border-spacing: 1px; 
+  border-spacing: 1.5px; 
   text-align: center; 
   line-height: 1.5; 
-  margin: 20px 10px;
+  margin: 10px 10px;
   }
   
   .td {
@@ -11,7 +11,7 @@
   }
   
   .tr {
-    width: 150px;
+    width: 160px;
     padding: 10px;
     font-weight: bold;
     vertical-align: top;
@@ -19,7 +19,7 @@
     background: #f3f6f7;
   }
   .th { 
-    width: 155px; 
+    width: 160px; 
     padding: 10px; 
     font-weight: bold; 
     vertical-align: top; 

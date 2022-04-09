@@ -16,7 +16,7 @@ export default function SignUp(){
         }).catch(err=>alert(err))
     }
 
-    return (<div>
+    return (<>
         <form action="" onSubmit={handleSubmit}>
         <h1>회원가입폼</h1>
         <div>
@@ -36,5 +36,5 @@ export default function SignUp(){
         </div>
         </form>
         <div><span id="res-span"></span></div>
-    </div>)
+    </>)
 }

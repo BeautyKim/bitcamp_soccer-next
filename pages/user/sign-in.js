@@ -13,9 +13,9 @@ export default function Login(){
         const loginRequest = {username, password}
         alert(`사용자 이름 : ${JSON.stringify(loginRequest)}`)
     }
-    return <><h1>로그인폼</h1>
+    return (<>
     <form>
-  
+    <h1>로그인폼</h1>
     <div>
     <label><b>Username</b></label>
     <input type="text" name='username' onChange={handleChange} /><br />
@@ -33,5 +33,5 @@ export default function Login(){
     <span>Forgot <a>password?</a></span>
     </div>
     </form>
-    </>
+    </>)
 }
