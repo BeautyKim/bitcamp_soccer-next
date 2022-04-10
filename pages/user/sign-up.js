@@ -17,8 +17,8 @@ export default function SignUp(){
     }
 
     return (<>
-        <form action="" onSubmit={handleSubmit}>
         <h1>회원가입폼</h1>
+        <form action="" onSubmit={handleSubmit}>
         <div>
         <label><b>사용자 ID</b></label>
         <input type="text" name='username' onChange={handleChange}/><br />
