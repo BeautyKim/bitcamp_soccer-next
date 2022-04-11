@@ -1,6 +1,5 @@
 import { Layout } from "common";
 import { wrapper } from '../redux/store'
-import 'common/style/globals.css'
 
 const App = ({ Component, pageProps }) => {
   return (
