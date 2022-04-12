@@ -14,3 +14,5 @@ const rootReducer = combineReducers({
     todoReducer,
     userReducer
 })
+
+export default rootReducer
