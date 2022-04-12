@@ -8,4 +8,4 @@ export const boardSlice = createSlice({
     reducers:{}
 })
 export default boardSlice.reducer
-//hotfix
+//hotfix 확인용
