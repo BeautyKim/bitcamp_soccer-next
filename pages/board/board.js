@@ -2,43 +2,46 @@ import axios from "axios"
 import style from "board/style/board-form.module.css"
 import Head from "next/head"
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { addBoard } from "../../redux/reducers/boardReducer.ts"
 
 export default function BoardhtmlForm(){
-    const [inputs, setInputs] = useState({})
-    const {passengerId, name, teamId, subject} = inputs
-    
-    const handleSubmit = e => {
-        e.preventDefault()
-        const request = {passengerId, name, teamId, subject}
-        axios.post('http://localhost:5000/api/board/form', inputs)
-        .then(res=>{
-            alert(JSON.stringify(res.data.result))
-        })
-        .catch(err => alert(err))
-    }
-    const handleChange = e => {
-        e.preventDefault()
-        const {name, value} = e.target
-        setInputs({...inputs, [name]:value})
-
-    }
-
+    const [value, setValue] = useState('')
+    const dispatch = useDispatch()
     return (<>
         <Head>
-        <title>게시판</title>
+        <title>게시판| 게시글 입력</title>
         </Head>
         <h1>게시판</h1>
+        <form onSubmit={ e => {
+            e.preventDefault()
+            alert('게시글 value :' + value)
+            if(value) dispatch(addBoard({title: value}))
+        }}>
         <div className={style.container}>
-        <htmlForm action="">
         <div className={style.row}>
             <div className={style.col25}>
-            <label className={style.label} htmlFor="passengerId">게시글 작성자 ID</label>
+            <label className={style.label} htmlFor="passengerId">게시글 제목</label>
             </div>
             <div className={style.col75}>
-            <input type="text" className={style.inputText}
-            id="passengerId" name="passengerId" placeholder="게시글 작성자 ID 입력" onChange={handleChange}/>
+            <input
+            type="text"
+            id="new-board-input"
+            name="title"
+            autoComplete="off"
+            onChange={ e => {
+                e.preventDefault()
+                setValue(e.target.value)}} className={style.inputText}
+            placeholder="게시글 제목 입력"/>
             </div>
         </div>
+        </div>
+            <button style={{marginLeft:"20px"}} type="submit" className="btn btn__primary btn__lg">
+                Add
+            </button>
+        </form>
+        
+        {/**
         <div className={style.row}>
             <div className={style.col25}>
             <label htmlFor="name">게시글 작성자 이름</label>
@@ -69,12 +72,14 @@ export default function BoardhtmlForm(){
             <input type="textarea"  id="subject" name="subject" style={{height:200 + "px"}} onChange={handleChange}></input>
             </div>
         </div>
+        
         <br/>
         <div className={style.row}>
             <input type="submit" className={style.inputSubmit}
             value="Submit" onClick={handleSubmit}/>
         </div>
-        </htmlForm>
-        </div>
+       </htmlForm>
+        </div> */}
+        
     </>)
     }

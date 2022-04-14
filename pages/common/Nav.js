@@ -16,11 +16,12 @@ export default function Nav(){
                 <li className={styles.li}> <Link href='/game/game-list'>게임목록</Link> </li>
                 <li className={styles.li}> <Link href='/game/team-list'>팀목록</Link> </li>
                 <li className={styles.li}> <Link href='/game/team-form'>팀등록</Link> </li>
-                <li className={styles.li}> <Link href='/todo/Todo'>스케줄등록</Link> </li>
+                <li className={styles.li}> <Link href='/todo/todo'>스케줄등록</Link> </li>
                 <li className={styles.li}> <Link href='/todo/todo-list'>스케줄목록</Link> </li>
                 <li className={styles.li}> <Link href='/user/join'>회원가입</Link> </li>
                 <li className={styles.li}> <Link href='/user/login'>로그인</Link> </li>
                 <li className={styles.li}> <Link href='/user/user-list'>사용자목록</Link> </li>
+                <li className={styles.li}> <Link href='/common/test'>테이블css 확인</Link> </li>
             </ul>
         </nav>
     );

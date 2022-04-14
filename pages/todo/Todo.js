@@ -3,15 +3,17 @@ import { getBindingIdentifiers } from "@babel/types";
 //import './styles/Task.scss'
 import { useDispatch } from "react-redux";
 import Image from "next/image";
-import { addTask } from '../../redux/reducers/todo.reducer'
+import { addTask } from '../../redux/reducers/todoReducer.ts'
 
 export default function AppTodo() {
   const [value, setValue] = useState('')
+  const dispatch = useDispatch()
   return (
      <div className="todoapp stack-large">
       <h1>일정등록</h1>
       <form onSubmit={ e => {
         e.preventDefault()
+        alert('value?'+value)
         if(value) dispatch(addTask({task: value}))
       }}>
         <input

@@ -2,27 +2,31 @@
   border-collapse: separate; 
   border-spacing: 1.5px; 
   text-align: center; 
-  line-height: 1.5; 
-  margin: 10px 10px;
+  line-height: 2; 
+  margin: 0.3px 0.3px;
+  width: auto;
+  table-layout:fixed;
+  word-break : break-all ;
+  height : auto;
   }
   
   .td {
-    border:1px solid rgb(181, 78, 150);
+    width: 1000px;
+    border:1px solid rgb(220, 153, 200);
   }
   
   .tr {
-    width: 160px;
-    padding: 10px;
+    width: 300px;
     font-weight: bold;
     vertical-align: top;
     border-bottom: 1px solid #ccc;
     background: #f3f6f7;
   }
   .th { 
-    width: 160px; 
-    padding: 10px; 
+    width: 300px;  
     font-weight: bold; 
     vertical-align: top; 
     color: #fff; 
     background: #ce4869 ;
   }
+  
