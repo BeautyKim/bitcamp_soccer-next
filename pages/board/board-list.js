@@ -7,22 +7,22 @@ const Table = ({columns, colspan, data}) => {
     return(
         <table className={tableStyles.table}>
             <thead>
-            <tr className={tableStyles.tr}>
+            <tr>
                 {columns.map((column) => (
-                <th key={column} className={tableStyles.th}>{column}</th>
+                <th key={column}>{column}</th>
                 ))}
             </tr>
             </thead>
             <tbody>
-                    {data.length == 0 ? <tr className={tableStyles.tr}>
-                    <td colSpan={colspan} className={tableStyles.td}>게시글 없음</td>
-                    </tr>
+                    {data.length == 0 ? <tr>
+                                        <td colSpan={colspan}>게시글 없음</td>
+                                        </tr>
                     :data.map((board)=> (
-                        <tr className={tableStyles.tr} key={board.passengerId}>
-                            <td className={tableStyles.td}>{board.passengerId}</td>
-                            <td className={tableStyles.td}>{board.name}</td>
-                            <td className={tableStyles.td}>{board.teamId}</td>
-                            <td className={tableStyles.td}>{board.subject}</td>
+                        <tr key={board.passengerId}>
+                            <td>{board.passengerId}</td>
+                            <td>{board.name}</td>
+                            <td>{board.teamId}</td>
+                            <td>{board.subject}</td>
                         </tr>
                     ))}
             </tbody>
@@ -45,7 +45,7 @@ export default function BoardList(){
         <title>보드 리스트</title>
         </Head>
         <h1>보드 리스트</h1>
-        <div className={tableStyles.td}>
+        <div>
         <Table columns={columns} colspan={4} data={data}/>
         </div>
         </>)
