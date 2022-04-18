@@ -1,0 +1,24 @@
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.article {
+    width: 100px;
+    height: 100px;
+    background: rgb(60, 28, 133);
+    margin: 100px auto;
+    animation-name: rotation;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    transform: rotate(50deg);
+}
+.article:hover {
+    animation-play-state: paused;
+}

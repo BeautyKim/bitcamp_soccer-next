@@ -38,7 +38,7 @@ const userSlice = createSlice({
         joinFailure(state: UserState, {payload}){
             state.data = payload;
             state.loading = false;
-        },
+        }
     }
 })
 const { reducer, actions } = userSlice

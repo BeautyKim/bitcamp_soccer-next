@@ -3,29 +3,33 @@ import { getBindingIdentifiers } from "@babel/types";
 //import './styles/Task.scss'
 import { useDispatch } from "react-redux";
 import Image from "next/image";
-import { addTask } from '../../redux/reducers/todoReducer.ts'
+import { todoActions } from '../../redux/reducers/todoReducer.ts';
+
 
 export default function AppTodo() {
-  const [value, setValue] = useState('')
+  const [user, setUser] = useState({userid:'', task:'', completed:''})
   const dispatch = useDispatch()
+  const handleChange = e => {
+    e.preventDefault()
+    const{name, value} = e.target
+    setUser({...user, [name]: value})
+  }
   return (
-     <div className="todoapp stack-large">
+     <>
       <h1>일정등록</h1>
       <form onSubmit={ e => {
         e.preventDefault()
-        alert('value?'+value)
-        if(value) dispatch(addTask({task: value}))
+        alert('진행 1 : 투두 등록')
+        dispatch(todoActions.todoRequest(user))
+        setUser({userid:'', task:'', completed:''})
       }}>
-        <input
-          type="text"
-          id="new-todo-input"
-          className="input input__lg"
-          name="text"
-          autoComplete="off"
-          onChange={ e => {
-            e.preventDefault()
-              setValue(e.target.value)}}
-        />
+      <label><b>userid</b></label>
+      <input type="text" name='userid' onChange={handleChange} /><br />
+      <label><b>task</b></label>
+      <input type="text" name='task' onChange={handleChange} /><br />
+      <label><b>completed</b></label>
+      <input type="text" name='completed' onChange={handleChange} /><br />
+
         <button style={{marginLeft:"20px"}} type="submit" className="btn btn__primary btn__lg">
           Add
         </button>
@@ -82,6 +86,6 @@ export default function AppTodo() {
           </div>
         </li>
       </ul/>*/}
-    </div>
+    </>
   );
 }
