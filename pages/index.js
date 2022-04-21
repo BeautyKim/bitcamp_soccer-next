@@ -3,7 +3,6 @@ import React, { useCallback } from 'react';
 import { Nav } from "common";
 import Link from "next/link";
 import Head from "next/head";
-import styles from "common/style/Nav.module.css";
 import animationStyle from 'basic/style/animation.module.css'
 import Image from "next/image";
 
@@ -16,9 +15,9 @@ export default function Home() {
     axios.get("http://localhost:5000/api/now").then((res) => {
       alert(JSON.stringify(res.data))
       var data = res.data;
-      document.getElementById("timeZone").innerHTML = '<h1>현재시간: '+data.now+'<h1>'
-    });
-  });
+      document.getElementById("timeZone").innerHTML = '<h1>지금은 '+data.now+'</h1>'
+    })
+  })
   return (
     <>
     <Head>
@@ -27,7 +26,7 @@ export default function Home() {
     <body>
     <Button onClick={onClick} />
     <div id="timeZone"></div>
-      <Image src={"/images/좀비춤.gif"} width={1000} height={800}/>
+    <Image src={"/images/키키.webp"} width={800} height={400} alt="아름이와아이들"/>
     </body>
     </>
   )

@@ -8,7 +8,7 @@ import Image from 'next/image';
 export default function Nav(){
   const basicUrls = ["/basic/counter","/basic/calc","/basic/bmi"]
   const basicSubTitle = ["카운터","계산기","BMI"]
-  const userUrls = ["/user/join","/user/login","/user/logout","/user/userProfile","/user/updateUser","/user/withdrawUser"]
+  const userUrls = ["/user/join","/user/login","/user/logout","/user/userProfile","/user/updateUser","/user/withdrawUser","/user/getUsers"]
   const userSubTitle = ["회원가입","로그인","로그아웃","프로필","회원수정","회원탈퇴","회원목록"]
   const todoUrls = ["/todo/addTodo","/todo/getTodos","/todo/modifyTodo","/todo/removeTodo"]
   const todoSubTitle = ["할일등록","할일목록","할일수정","할일삭제"]
@@ -23,7 +23,7 @@ export default function Nav(){
     <table className={tableStyles.table}>
       <tr>
       <td>
-        <a href={"/"}><Image src={"/images/심슨.gif"} width={70} height={55}/></a>
+        <a href={"/"}><Image src={"/images/토토로.gif"} width={80} height={80} alt="나는노홍주"/></a>
         <SubMenu title={"기본"} urls={basicUrls} subTitles={basicSubTitle}/>
         <SubMenu title={"사용자"} urls={userUrls} subTitles={userSubTitle}/>
         <SubMenu title={"투두"} urls={todoUrls} subTitles={todoSubTitle}/>
@@ -64,7 +64,7 @@ const SubMenu = (props) => {
         }}
       >
          {props.urls.map(function(url, i){
-            return <MenuItem onClick={handleClose}><Link href={url} key={i}>{props.subTitles[i]}</Link></MenuItem>
-          })}
+           return <MenuItem onClick={handleClose}><Link href={url} key={i} >{props.subTitles[i]}</Link></MenuItem>
+        })}
       </Menu></>
 }

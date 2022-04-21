@@ -1,19 +1,19 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import tableStyles from 'common/style/table.module.css'
 export default function Bmi() {
     const proxy = 'http://localhost:5000'
     const [inputs, setInputs] = useState({})
 
-    const onChange = e => {
+    const handleChange = e => {
         e.preventDefault()
         const { value, name } = e.target
         setInputs({ ...inputs, [name]: value })
     }
 
-
     const handleSubmit = e => {
         e.preventDefault()
-        axios.post('/api/basic/bmi', inputs)
+        axios.post('/basic/bmi', inputs)
         .then(res => {
             const bmi = res.data
             document.getElementById('result-span').innerHTML = `
@@ -25,22 +25,43 @@ export default function Bmi() {
         })
         .catch(err => alert(err))
     }
-    return (<div>
-        <form action="" onSubmit={handleSubmit}>
-            <h1>BMI</h1>
+    return (<form action="" onSubmit={handleSubmit} >
+    <table className={tableStyles.table}>
+        <thead>
+            <tr>
+                <th colSpan={2}><h2>BMI</h2></th>
+            </tr>
+        </thead>
+        <tbody>
+    <tr >
+        <td>
+            <label htmlFor="">이름</label>
+        </td>
+        <td>
+            <input type="text" name="name" onChange={handleChange} />
+        </td>
+    </tr>
+    <tr >
+        <td>
+            <label htmlFor="">키</label>
+        </td>
+        <td>
+        <input type="text" name="height" onChange={handleChange} />
+        </td>
+    </tr>
+    <tr >
+        <td>
             <div>
-                <label htmlFor="">이름</label>
-                <input type="text" name="name" onChange={onChange} /><br />
-
-                <label htmlFor="">키</label>
-                <input type="text" name="height" onChange={onChange} /><br />
-
                 <label htmlFor="">몸무게</label>
-                <input type="text" name="weight" onChange={onChange} /><br />
-                <input type="submit" value="BMI 체크" /><br />
-
             </div>
-        </form>
-        <div> 결과 : <span id="result-span"></span></div>
-    </div>)
+        </td>
+        <td>
+            <input type="text" name="weight" onChange={handleChange} /><br />
+        </td>
+    </tr>
+    <tr><td colSpan={2}><input type="submit" value="BMI 체크" /></td></tr>
+        <tr><td colSpan={2}>결과 : <span id="result-span"></span></td></tr>
+            </tbody>
+        </table></form>
+)
 }

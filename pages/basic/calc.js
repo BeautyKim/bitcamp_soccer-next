@@ -14,7 +14,7 @@ export default function Calc(){
 }
 const handleClick = (e)=>{
     e.preventDefault()
-    axios.post('http://localhost:5000/api/basic/calc', inputs)
+    axios.post('http://localhost:5000/basic/calc', inputs)
     .then(res=> {
       const calc = res.data
       document.getElementById('result-span').innerHTML = `

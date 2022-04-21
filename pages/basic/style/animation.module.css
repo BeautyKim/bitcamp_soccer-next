@@ -7,10 +7,10 @@
     }
 }
 .article {
-    width: 100px;
-    height: 100px;
-    background: rgb(60, 28, 133);
-    margin: 100px auto;
+    width: 30px;
+    height: 30px;
+    background: rgb(227, 247, 138);
+    margin: 30px auto;
     animation-name: rotation;
     animation-duration: 3s;
     animation-timing-function: linear;

@@ -23,7 +23,7 @@ export default function  Join(){
             setUser({
                 userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
             })
-            window.location.href = "./login"
+            // window.location.href = "./login"
         }
     }
     >

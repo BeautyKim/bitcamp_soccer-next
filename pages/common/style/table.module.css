@@ -23,9 +23,10 @@
 
   .table tbody tr {
     border-bottom: 1px solid #dddddd;
+    background-color: #ffffff;
   }
-  .table tbody tr:nth-of-type(even) {
-    background-color: #ce486a1a;
+  .table tbody tr:hover {
+    background-color: #fee0e9;
   }
   .table tbody tr:last-of-type {
     border-bottom: 2px solid #ce4869;
